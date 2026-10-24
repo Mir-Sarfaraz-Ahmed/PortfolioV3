@@ -1419,7 +1419,18 @@ body::before {
 .footer-glass-pill.primary-pill .pill-icon {
   color: var(--accent-hi);
   font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.25s;
+}
+.footer-glass-pill.primary-pill .pill-icon svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+.footer-glass-pill.primary-pill .pill-icon svg:not([fill="none"]) {
+  fill: currentColor;
 }
 
 .footer-glass-pill.primary-pill:hover {
