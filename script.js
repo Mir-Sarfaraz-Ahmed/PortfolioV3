@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         (navigator.maxTouchPoints > 0) ||
                         window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
-  if (cdot && cring && !isTouchDevice) {
+  if (cdot && cring && !isTouchDevice && window.innerWidth > 860) {
     let mx = -100, my = -100, rx = -100, ry = -100;
 
     document.addEventListener('mousemove', e => {
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animRing);
     })();
 
-    document.querySelectorAll('a, button, .proj-row, .channel, .cert-card').forEach(el => {
+    document.querySelectorAll('a, button, .proj-row, .channel, .cert-card, .magnetic-pill, .magnetic-card, .tech-node').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cdot.style.transform = 'scale(3)';
         cring.style.opacity  = '0';
@@ -192,6 +192,71 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── 3D Magnetic Physics: Pills & Interactive Cards ── */
+  if (!isTouchDevice) {
+    // 1. Magnetic Pills (Buttons, Links, Tags)
+    const magneticPills = document.querySelectorAll('.magnetic-pill');
+    magneticPills.forEach(pill => {
+      pill.addEventListener('mousemove', (e) => {
+        const rect = pill.getBoundingClientRect();
+        const halfW = rect.width / 2;
+        const halfH = rect.height / 2;
+        const offsetX = e.clientX - rect.left - halfW;
+        const offsetY = e.clientY - rect.top - halfH;
+
+        pill.style.transform = `translate3d(${offsetX * 0.28}px, ${offsetY * 0.28}px, 0) rotateX(${-offsetY * 0.12}deg) rotateY(${offsetX * 0.12}deg) scale(1.04)`;
+      });
+
+      pill.addEventListener('mouseleave', () => {
+        pill.style.transform = 'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+    });
+
+    // 2. Magnetic Cards (Tech Nodes, Cert Cards, Hero Profile Panel)
+    const magneticCards = document.querySelectorAll('.magnetic-card');
+    magneticCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const halfW = rect.width / 2;
+        const halfH = rect.height / 2;
+        const offsetX = e.clientX - rect.left - halfW;
+        const offsetY = e.clientY - rect.top - halfH;
+
+        card.style.transform = `translate3d(${offsetX * 0.08}px, ${offsetY * 0.08}px, 0) rotateX(${-offsetY * 0.04}deg) rotateY(${offsetX * 0.04}deg) scale(1.015)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+    });
+  }
+
+  /* ── Cinematic Motion Footer: Giant Parallax Text ── */
+  const giantText = document.getElementById('footerGiantText');
+  const footerWrap = document.getElementById('footerRevealWrap');
+  if (giantText && footerWrap) {
+    const handleFooterParallax = () => {
+      const rect = footerWrap.getBoundingClientRect();
+      const winH = window.innerHeight;
+      if (rect.top <= winH && rect.bottom >= 0) {
+        const progress = (winH - rect.top) / (winH + rect.height);
+        const maxShift = window.innerWidth <= 860 ? 12 : 35;
+        const shiftY = (1 - progress) * maxShift;
+        giantText.style.transform = `translateX(-50%) translateY(${shiftY}px)`;
+      }
+    };
+    window.addEventListener('scroll', handleFooterParallax, { passive: true });
+    handleFooterParallax();
+  }
+
+  /* ── Cinematic Motion Footer: Back To Top ── */
+  const footerScrollTopBtn = document.getElementById('footerScrollTopBtn');
+  if (footerScrollTopBtn) {
+    footerScrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
 });
 
 /* ── Project Expand (global so onclick works) ── */
@@ -218,3 +283,35 @@ function toggleProject(i) {
     }, 250);
   }
 }
+
+/* -- Contact Form Reveal (Footer Email Me Button) -- */
+(function initContactFormReveal() {
+  var emailBtn   = document.getElementById('footerEmailBtn');
+  var formWrap   = document.getElementById('contactFormWrap');
+  var closeBtn   = document.getElementById('formCloseBtn');
+  var contactSec = document.getElementById('contact');
+
+  if (!emailBtn || !formWrap || !closeBtn) return;
+
+  function openForm() {
+    contactSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      formWrap.classList.add('form-open');
+      var firstInput = formWrap.querySelector('input, textarea');
+      if (firstInput) setTimeout(function() { firstInput.focus(); }, 200);
+    }, 420);
+  }
+
+  function closeForm() {
+    formWrap.classList.remove('form-open');
+  }
+
+  emailBtn.addEventListener('click', openForm);
+  closeBtn.addEventListener('click', closeForm);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && formWrap.classList.contains('form-open')) {
+      closeForm();
+    }
+  });
+})();
