@@ -9,76 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Chakra+Petch:wght@300;400;500;600&family=Rajdhani:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
-<style>
-/* ── Certifications ─────────────────────────── */
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2px;
-  max-width: 1140px;
-  margin: 40px auto 0;
-}
-.cert-card {
-  background: var(--surface2);
-  border: 1px solid var(--dim);
-  padding: 24px;
-  position: relative;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
-  transition: all .25s;
-}
-.cert-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-}
-.cert-card:hover {
-  background: rgba(74,127,167,0.08);
-  border-color: var(--accent);
-}
-.cert-card.coming-soon { opacity: .4; cursor: default; }
-.cert-issuer {
-  font-family: var(--font-ui); font-size: 8px; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
-}
-.cert-issuer::before { content: '◆'; font-size: 6px; }
-.cert-name {
-  font-family: var(--font-display); font-size: 16px;
-  letter-spacing: 1px; text-transform: uppercase;
-  color: var(--white); line-height: 1.3;
-}
-.cert-date {
-  font-family: var(--font-ui); font-size: 8px; letter-spacing: 2px;
-  color: var(--muted); margin-top: 12px; text-transform: uppercase;
-}
-.cert-badge {
-  position: absolute; top: 14px; right: 14px;
-  width: 28px; height: 28px;
-  border: 1px solid var(--dim); background: var(--bg);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; color: var(--accent);
-  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-}
-
-/* ── ACS block inside project expand ────────── */
-.acs-block {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--dim);
-}
-.acs-label {
-  font-family: var(--font-ui); font-size: 8px; letter-spacing: 4px;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
-}
-.acs-label::before { content: '►'; font-size: 6px; }
-.acs-block p {
-  font-family: var(--font-body); font-size: 14px;
-  line-height: 1.85; color: var(--muted);
-}
-</style>
 </head>
 <body>
 
@@ -90,18 +20,49 @@
      NAVBAR
 ══════════════════════════════════════ -->
 <nav id="navbar">
-  <div class="nav-logo">MSA</div>
+  <a href="#home" class="nav-logo">MSA</a>
   <ul class="nav-links">
-    <li><a href="#home"            class="active">Home</a></li>
-    <li><a href="#about"                         >About</a></li>
-    <li><a href="#projects"                      >Projects</a></li>
-    <li><a href="#certifications"                >Certs</a></li>
-    <li><a href="#contact"                       >Contact</a></li>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-status">
     <div class="status-dot"></div>Available · 2026
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+
+<!-- MOBILE & TABLET DRAWER -->
+<div class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <div class="drawer-header">
+    <span class="drawer-tag">SYS.NAV // NAVIGATION</span>
+    <span class="drawer-id">VER 2.0 · 2026</span>
+  </div>
+  <ul class="drawer-links">
+    <li><a href="#home" class="active"><span class="d-num">01</span><span class="d-label">Home</span><span class="d-arr">→</span></a></li>
+    <li><a href="#about"><span class="d-num">02</span><span class="d-label">About</span><span class="d-arr">→</span></a></li>
+    <li><a href="#projects"><span class="d-num">03</span><span class="d-label">Projects</span><span class="d-arr">→</span></a></li>
+    <li><a href="#certifications"><span class="d-num">04</span><span class="d-label">Certifications</span><span class="d-arr">→</span></a></li>
+    <li><a href="#contact"><span class="d-num">05</span><span class="d-label">Contact</span><span class="d-arr">→</span></a></li>
+  </ul>
+  <div class="drawer-footer">
+    <div class="drawer-status">
+      <div class="status-dot"></div>Status: Available · 2026
+    </div>
+    <div class="drawer-socials">
+      <a href="https://github.com/Mir-Sarfaraz-Ahmed" target="_blank">◈ GitHub</a>
+      <a href="https://www.linkedin.com/in/mir-sarfaraz-ahmed-367957329/" target="_blank">◉ LinkedIn</a>
+      <a href="resume.pdf" download>↓ Resume</a>
+    </div>
+  </div>
+</div>
 
 
 <!-- ══════════════════════════════════════
@@ -130,15 +91,15 @@
         <span class="ln2">Sarfaraz</span>
         <span class="ln3">Ahmed</span>
       </h1>
-      <div class="hero-role reveal">Python · SQL · HTML · JavaScript</div>
+      <div class="hero-role reveal">Python · SQL · Java · C · Arduino</div>
       <p class="hero-bio reveal">
         Self-driven CS learner building real-world skills. Long-term goal: impactful solutions in
         <strong>AI &amp; Software Development</strong>.
       </p>
       <div class="hero-actions reveal">
         <a href="https://github.com/Mir-Sarfaraz-Ahmed" target="_blank" class="btn btn-primary">◈ GitHub</a>
-        <a href="https://www.linkedin.com/in/mir-sarfaraz-ahmed-367957329/" target="_blank" class="btn btn-ghost">◉ LinkedIn</a>
-        <a href="resume.pdf" download class="btn btn-ghost">↓ Resume</a>
+        <a href="https://www.linkedin.com/in/mir-sarfaraz-ahmed-367957329/" target="_blank" class="btn btn-primary">◉ LinkedIn</a>
+        <a href="resume.pdf" download class="btn btn-primary">↓ Resume</a>
       </div>
     </div>
 
@@ -175,10 +136,10 @@
 
   <div class="ticker-bar">
     <div class="ticker-track">
-      <span>Python</span><span>SQL</span><span>HTML</span><span>JavaScript</span>
-      <span>Arduino IoT</span><span>Artificial Intelligence</span><span>Web Dev</span><span>NCC Cadet</span>
-      <span>Python</span><span>SQL</span><span>HTML</span><span>JavaScript</span>
-      <span>Arduino IoT</span><span>Artificial Intelligence</span><span>Web Dev</span><span>NCC Cadet</span>
+      <span>Python</span><span>SQL</span><span>Java</span><span>C</span>
+      <span>Arduino</span><span>Artificial Intelligence</span><span>Web Dev</span><span>NCC Cadet</span>
+      <span>Python</span><span>SQL</span><span>Java</span><span>C</span>
+      <span>Arduino</span><span>Artificial Intelligence</span><span>Web Dev</span><span>NCC Cadet</span>
     </div>
   </div>
 
@@ -206,25 +167,6 @@
         I learn primarily by building — experimenting with new technologies, developing projects, and improving them through iteration. From IoT-based systems to AI-powered applications and interactive web platforms, I’m focused on gaining practical experience alongside my engineering education.<br><br>
         My long-term goal is to grow into a strong software and AI developer who can build useful, reliable, and impactful technology.
       </p>
-
-      <div class="ach-list reveal">
-        <div class="ach-item">
-          <div class="ach-icon">◆</div>
-          <div class="ach-text">Science Model — Zonal Level 1st<small>Best Project Award</small></div>
-        </div>
-        <div class="ach-item">
-          <div class="ach-icon">◈</div>
-          <div class="ach-text">Science Model — District Level 2nd<small>Runner Up</small></div>
-        </div>
-        <div class="ach-item">
-          <div class="ach-icon">◉</div>
-          <div class="ach-text">State Level Participant<small>Science Model Competition</small></div>
-        </div>
-        <div class="ach-item">
-          <div class="ach-icon">▣</div>
-          <div class="ach-text">Class Monitor Since Grade 7<small>Leadership · NCC Cadet · Discipline Captain</small></div>
-        </div>
-      </div>
     </div>
 
     <div class="about-divider"></div>
@@ -232,30 +174,60 @@
     <div class="about-right-panel">
       <div class="section-tag reveal">Tech Stack</div>
 
-      <div class="skills-block reveal" id="skillsBlock">
-        <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Python</span><span class="skill-pct">60%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="60"></div></div>
+      <div class="tech-matrix reveal">
+        <div class="tech-node">
+          <div class="node-main">
+            <span class="node-symbol">PY</span>
+            <div class="node-info">
+              <span class="node-title">Python</span>
+              <span class="node-sub">AI/ML · Scripting · Automation</span>
+            </div>
+          </div>
+          <div class="node-badge">CORE</div>
         </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">SQL</span><span class="skill-pct">70%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
+
+        <div class="tech-node">
+          <div class="node-main">
+            <span class="node-symbol">SQL</span>
+            <div class="node-info">
+              <span class="node-title">SQL</span>
+              <span class="node-sub">Relational DBs · Queries · Schema</span>
+            </div>
+          </div>
+          <div class="node-badge">DATA</div>
         </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">HTML</span><span class="skill-pct">45%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="45"></div></div>
+
+        <div class="tech-node">
+          <div class="node-main">
+            <span class="node-symbol">JV</span>
+            <div class="node-info">
+              <span class="node-title">Java</span>
+              <span class="node-sub">OOP · Data Structures · Logic</span>
+            </div>
+          </div>
+          <div class="node-badge">OOP</div>
         </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">JavaScript</span><span class="skill-pct">10%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="10"></div></div>
+
+        <div class="tech-node">
+          <div class="node-main">
+            <span class="node-symbol">C</span>
+            <div class="node-info">
+              <span class="node-title">C</span>
+              <span class="node-sub">Systems · Memory · Algorithms</span>
+            </div>
+          </div>
+          <div class="node-badge">SYSTEMS</div>
         </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">CSS</span><span class="skill-pct">10%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="10"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Arduino / IoT</span><span class="skill-pct">60%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="60"></div></div>
+
+        <div class="tech-node">
+          <div class="node-main">
+            <span class="node-symbol">ARD</span>
+            <div class="node-info">
+              <span class="node-title">Arduino</span>
+              <span class="node-sub">Microcontrollers · Sensors · IoT</span>
+            </div>
+          </div>
+          <div class="node-badge">HARDWARE</div>
         </div>
       </div>
 
@@ -668,24 +640,6 @@
 </footer>
 
 <script src="script.js" defer></script>
-
-<script>
-/* Extended nav observer — now includes certifications */
-(function () {
-  const ids   = ['home', 'about', 'projects', 'certifications', 'contact'];
-  const links = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY + 80;
-    ids.forEach((id, i) => {
-      const sec = document.getElementById(id);
-      if (sec && y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
-        links.forEach(a => a.classList.remove('active'));
-        if (links[i]) links[i].classList.add('active');
-      }
-    });
-  });
-})();
-</script>
 
 </body>
 </html>

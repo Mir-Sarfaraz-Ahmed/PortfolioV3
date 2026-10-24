@@ -15,22 +15,57 @@
 <div class="c-dot" id="cdot"></div>
 <div class="c-ring" id="cring"></div>
 
+<!-- SCROLL TO TOP -->
+<button id="scrollTop" aria-label="Scroll to top">↑</button>
+
 <!-- NAV -->
 <nav id="navbar">
-  <div class="nav-logo">MSA</div>
+  <a href="index.html" class="nav-logo">MSA</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#projects" class="active">Projects</a></li>
+    <li><a href="index.html#certifications">Certs</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <div class="nav-status">
     <div class="status-dot"></div>Available · 2026
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
+
+<!-- MOBILE & TABLET DRAWER -->
+<div class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <div class="drawer-header">
+    <span class="drawer-tag">SYS.NAV // NAVIGATION</span>
+    <span class="drawer-id">VER 2.0 · 2026</span>
+  </div>
+  <ul class="drawer-links">
+    <li><a href="index.html"><span class="d-num">01</span><span class="d-label">Home</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#about"><span class="d-num">02</span><span class="d-label">About</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#projects" class="active"><span class="d-num">03</span><span class="d-label">Projects</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#certifications"><span class="d-num">04</span><span class="d-label">Certifications</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#contact"><span class="d-num">05</span><span class="d-label">Contact</span><span class="d-arr">→</span></a></li>
+  </ul>
+  <div class="drawer-footer">
+    <div class="drawer-status">
+      <div class="status-dot"></div>Status: Available · 2026
+    </div>
+    <div class="drawer-socials">
+      <a href="https://github.com/Mir-Sarfaraz-Ahmed" target="_blank">◈ GitHub</a>
+      <a href="https://www.linkedin.com/in/mir-sarfaraz-ahmed-367957329/" target="_blank">◉ LinkedIn</a>
+      <a href="resume.pdf" download>↓ Resume</a>
+    </div>
+  </div>
+</div>
+
 <!-- PROJECT PAGE -->
-<div style="max-width:1140px;margin:40px auto;padding:0 40px 80px">
+<div class="project-page-wrap">
 
   <a href="index.html#projects" class="back-btn reveal">Back to Projects</a>
 
@@ -116,7 +151,7 @@
       </p>
       <a href="ppt.pdf" target="_blank" class="btn">► View Full Presentation (PDF)</a>
       <br><br>
-      <embed src="ppt.pdf" type="application/pdf" width="100%" height="600px">
+      <embed src="ppt.pdf" type="application/pdf" class="pdf-embed">
     </div>
 
   </section>

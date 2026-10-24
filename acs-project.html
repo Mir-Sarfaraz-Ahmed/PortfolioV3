@@ -1,196 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anti-Collision System (ACS) | Mir Sarfaraz Ahmed</title>
+<link rel="icon" type="image/png" href="profile.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Chakra+Petch:wght@300;400;500;600&family=Rajdhani:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<!-- CURSOR -->
+<div class="c-dot" id="cdot"></div>
+<div class="c-ring" id="cring"></div>
 
 <!-- SCROLL TO TOP -->
 <button id="scrollTop" aria-label="Scroll to top">↑</button>
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <ul>
-    <li><a href="index.html"          class="nav-link">Home</a></li>
-    <li><a href="index.html#about"    class="nav-link">About</a></li>
-    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-    <li><a href="index.html#contact"  class="nav-link">Contact</a></li>
+  <a href="index.html" class="nav-logo">MSA</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#projects" class="active">Projects</a></li>
+    <li><a href="index.html#certifications">Certs</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <div class="nav-status">
+    <div class="status-dot"></div>Available · 2026
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 
+<!-- MOBILE & TABLET DRAWER -->
+<div class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <div class="drawer-header">
+    <span class="drawer-tag">SYS.NAV // NAVIGATION</span>
+    <span class="drawer-id">VER 2.0 · 2026</span>
+  </div>
+  <ul class="drawer-links">
+    <li><a href="index.html"><span class="d-num">01</span><span class="d-label">Home</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#about"><span class="d-num">02</span><span class="d-label">About</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#projects" class="active"><span class="d-num">03</span><span class="d-label">Projects</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#certifications"><span class="d-num">04</span><span class="d-label">Certifications</span><span class="d-arr">→</span></a></li>
+    <li><a href="index.html#contact"><span class="d-num">05</span><span class="d-label">Contact</span><span class="d-arr">→</span></a></li>
+  </ul>
+  <div class="drawer-footer">
+    <div class="drawer-status">
+      <div class="status-dot"></div>Status: Available · 2026
+    </div>
+    <div class="drawer-socials">
+      <a href="https://github.com/Mir-Sarfaraz-Ahmed" target="_blank">◈ GitHub</a>
+      <a href="https://www.linkedin.com/in/mir-sarfaraz-ahmed-367957329/" target="_blank">◉ LinkedIn</a>
+      <a href="resume.pdf" download>↓ Resume</a>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ PROJECT CONTENT ═══ -->
-<section class="project-page">
+<div class="project-page-wrap">
 
-  <a href="index.html" class="back-btn">Back to Portfolio</a>
+  <a href="index.html#projects" class="back-btn reveal">Back to Projects</a>
 
-  <h1>Anti-Collision Warning System (ACS)</h1>
+  <section class="project-page reveal">
 
-  <p>
-    An Arduino-based collision avoidance system designed to enhance road safety
-    on hazardous sections like mountain turns and blind spots. Using IR sensors
-    and a relay module, the system detects oncoming vehicles in real-time and
-    triggers visual warning alerts — preventing head-on collisions before they happen.
-  </p>
+    <span class="sc sc-tl" style="position:absolute">PROJECT.DAT / ACS</span>
+    <span class="sc sc-tr" style="position:absolute">2025</span>
 
-  <div class="tech-stack">
-    <span>Arduino</span>
-    <span>IR Sensors</span>
-    <span>Relay Module</span>
-    <span>IoT</span>
-    <span>Real-Time Detection</span>
-  </div>
+    <h1>Anti-Collision Warning<br>System (ACS)</h1>
 
-
-  <!-- ── KEY FEATURES ── -->
-  <h2>Key Features</h2>
-
-  <div class="features-grid">
-
-    <div class="feature-card">
-      <div class="icon">📡</div>
-      <h4>Real-Time Vehicle Detection</h4>
-      <p>IR sensors placed on both sides of a blind turn detect approaching vehicles instantly, even around corners.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="icon">💡</div>
-      <h4>Visual Warning Alerts</h4>
-      <p>When a vehicle is detected, the relay triggers bright warning LEDs on both sides of the turn to alert drivers.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="icon">🔁</div>
-      <h4>Relay-Based Switching</h4>
-      <p>A relay module bridges the low-power Arduino output to control high-power warning lights reliably.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="icon">⛰️</div>
-      <h4>Mountain Turn Focused</h4>
-      <p>Specifically designed for sharp blind curves and mountain roads where traditional signage fails to prevent accidents.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="icon">⚡</div>
-      <h4>Instant Response</h4>
-      <p>Detection-to-alert latency is near-zero — the system reacts in milliseconds, giving drivers maximum reaction time.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="icon">🔧</div>
-      <h4>Low-Cost & Scalable</h4>
-      <p>Built entirely from affordable components — Arduino, IR LEDs, and a relay module — making it easy to deploy at scale.</p>
-    </div>
-
-  </div>
-
-  <hr>
-
-  <!-- ── PROBLEM & SOLUTION ── -->
-  <h2>Problem &amp; Solution</h2>
-
-  <div class="about-wrapper" style="margin-top: 18px;">
-
-    <div class="about-left">
-      <h3 style="color: #2c3e50; font-family: 'Syne', sans-serif; margin-bottom: 12px;">⚠️ The Problem</h3>
-      <p>
-        Accidents on hazardous road sections — especially sharp turns and blind spots —
-        pose a significant threat to road safety. Traditional warning systems rely on
-        <strong>static signage</strong>, which cannot respond to real-time traffic and
-        fails to prevent accidents caused by sudden hazards or driver distraction.
-      </p>
-    </div>
-
-    <div class="about-left">
-      <h3 style="color: #2c3e50; font-family: 'Syne', sans-serif; margin-bottom: 12px;">✅ The Solution</h3>
-      <p>
-        The ACS provides <strong>real-time dynamic alerts</strong> using infrared sensors
-        and intelligent relay switching. When a vehicle is detected approaching from the
-        other side of a blind turn, the system immediately activates visual warnings on
-        both sides — prompting drivers to slow down and avoid a collision.
-      </p>
-    </div>
-
-  </div>
-
-  <hr>
-
-  <!-- ── SYSTEM ARCHITECTURE ── -->
-  <h2>System Architecture</h2>
-
-  <ul>
-    <li><strong>Arduino Uno</strong> — central controller running the detection and alert logic</li>
-    <li><strong>IR Sensor (x2)</strong> — one placed on each side of the blind turn for bidirectional detection</li>
-    <li><strong>Relay Module</strong> — switches warning lights on/off based on Arduino signal output</li>
-    <li><strong>Warning LEDs</strong> — bright visual alerts activated on vehicle detection</li>
-    <li><strong>Detection Algorithm</strong> — if either sensor is triggered, both sides are alerted simultaneously</li>
-  </ul>
-
-  <hr>
-
-  <!-- ── MY ROLE ── -->
-  <h2>My Role in the Project</h2>
-
-  <ul>
-    <li>Designed and built the physical mountain road model with tunnel and terrain</li>
-    <li>Wired and integrated IR sensors with the Arduino Uno controller</li>
-    <li>Implemented the relay switching logic for warning light activation</li>
-    <li>Tested and calibrated sensor sensitivity for reliable vehicle detection range</li>
-    <li>Collaborated on the technical documentation and competition presentation</li>
-  </ul>
-
-  <!-- ── PROJECT IMAGE ── -->
-  <div class="project-images" style="margin-top: 32px;">
-    <img src="traffic2.jpg" alt="Anti-Collision System Model"
-         onerror="this.style.display='none'">
-  </div>
-
-  <hr>
-
-  <!-- ── PRESENTATION ── -->
-  <h2>Project Presentation</h2>
-
-  <div class="media-box">
-    <p style="margin-bottom: 16px; color: #6b7280; font-size: 15px;">
-      Full slide deck covering the ACS system design, problem statement,
-      components used, and implementation strategy.
+    <p>
+      An Arduino-based collision avoidance system designed to enhance road safety
+      on hazardous sections like mountain turns and blind spots. Using IR sensors
+      and a relay module, the system detects oncoming vehicles in real-time and
+      triggers visual warning alerts — preventing head-on collisions before they happen.
     </p>
 
-    <a href="ppt.pdf" target="_blank" class="btn">
-      Open Full Presentation (PDF) ↗
-    </a>
+    <div class="tech-stack">
+      <span>Arduino</span>
+      <span>IR Sensors</span>
+      <span>Relay Module</span>
+      <span>IoT</span>
+      <span>Real-Time Detection</span>
+    </div>
 
-    <br><br>
+    <hr>
 
-    <embed src="ppt.pdf"
-           type="application/pdf"
-           width="100%"
-           height="600px">
-  </div>
+    <!-- ── KEY FEATURES ── -->
+    <h2>Key Features</h2>
 
-</section>
+    <div class="features-grid">
 
+      <div class="feature-card">
+        <div class="icon">📡</div>
+        <h4>Real-Time Vehicle Detection</h4>
+        <p>IR sensors placed on both sides of a blind turn detect approaching vehicles instantly, even around corners.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">💡</div>
+        <h4>Visual Warning Alerts</h4>
+        <p>When a vehicle is detected, the relay triggers bright warning LEDs on both sides of the turn to alert drivers.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🔁</div>
+        <h4>Relay-Based Switching</h4>
+        <p>A relay module bridges the low-power Arduino output to control high-power warning lights reliably.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">⛰️</div>
+        <h4>Mountain Turn Focused</h4>
+        <p>Specifically designed for sharp blind curves and mountain roads where traditional signage fails to prevent accidents.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h4>Instant Response</h4>
+        <p>Detection-to-alert latency is near-zero — the system reacts in milliseconds, giving drivers maximum reaction time.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🔧</div>
+        <h4>Low-Cost &amp; Scalable</h4>
+        <p>Built entirely from affordable components — Arduino, IR LEDs, and a relay module — making it easy to deploy at scale.</p>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- ── PROBLEM & SOLUTION ── -->
+    <h2>Problem &amp; Solution</h2>
+
+    <div class="about-wrapper">
+
+      <div class="about-left">
+        <h3>⚠️ The Problem</h3>
+        <p>
+          Accidents on hazardous road sections — especially sharp turns and blind spots —
+          pose a significant threat to road safety. Traditional warning systems rely on
+          <strong>static signage</strong>, which cannot respond to real-time traffic and
+          fails to prevent accidents caused by sudden hazards or driver distraction.
+        </p>
+      </div>
+
+      <div class="about-left">
+        <h3>✅ The Solution</h3>
+        <p>
+          The ACS provides <strong>real-time dynamic alerts</strong> using infrared sensors
+          and intelligent relay switching. When a vehicle is detected approaching from the
+          other side of a blind turn, the system immediately activates visual warnings on
+          both sides — prompting drivers to slow down and avoid a collision.
+        </p>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- ── SYSTEM ARCHITECTURE ── -->
+    <h2>System Architecture</h2>
+
+    <ul>
+      <li><strong>Arduino Uno</strong> — central controller running the detection and alert logic</li>
+      <li><strong>IR Sensor (x2)</strong> — one placed on each side of the blind turn for bidirectional detection</li>
+      <li><strong>Relay Module</strong> — switches warning lights on/off based on Arduino signal output</li>
+      <li><strong>Warning LEDs</strong> — bright visual alerts activated on vehicle detection</li>
+      <li><strong>Detection Algorithm</strong> — if either sensor is triggered, both sides are alerted simultaneously</li>
+    </ul>
+
+    <hr>
+
+    <!-- ── MY ROLE ── -->
+    <h2>My Role in the Project</h2>
+
+    <ul>
+      <li>Designed and built the physical mountain road model with tunnel and terrain</li>
+      <li>Wired and integrated IR sensors with the Arduino Uno controller</li>
+      <li>Implemented the relay switching logic for warning light activation</li>
+      <li>Tested and calibrated sensor sensitivity for reliable vehicle detection range</li>
+      <li>Collaborated on the technical documentation and competition presentation</li>
+    </ul>
+
+    <hr>
+
+    <!-- ── PROJECT IMAGE ── -->
+    <h2>Hardware Prototype</h2>
+    <div class="project-images">
+      <img src="traffic2.jpg" alt="Anti-Collision System Model">
+    </div>
+
+    <hr>
+
+    <!-- ── PRESENTATION ── -->
+    <h2>Project Presentation</h2>
+
+    <div class="media-box">
+      <p class="about-desc" style="margin-top:0;margin-bottom:16px">
+        Full slide deck covering the ACS system design, problem statement,
+        components used, and implementation strategy.
+      </p>
+
+      <a href="ppt.pdf" target="_blank" class="btn">
+        ► View Full Presentation (PDF)
+      </a>
+
+      <br><br>
+
+      <embed src="ppt.pdf"
+             type="application/pdf"
+             class="pdf-embed">
+    </div>
+
+  </section>
+
+</div>
 
 <footer>
-  <p>© 2026 <span>Mir Sarfaraz Ahmed</span>. All Rights Reserved.</p>
+  <div class="footer-brand">MSA</div>
+  <div class="footer-copy">© 2026 Mir Sarfaraz Ahmed · All Rights Reserved</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
 </footer>
 
-
-<script>
-  const btn = document.getElementById('scrollTop');
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('show', window.scrollY > 400);
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-</script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
